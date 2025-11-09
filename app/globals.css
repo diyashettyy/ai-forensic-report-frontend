@@ -4,31 +4,31 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated to forensic theme colors */
-  --background: #0b0c10;
-  --foreground: #c5c6c7;
-  --card: #1f2833;
-  --card-foreground: #c5c6c7;
-  --popover: #1f2833;
-  --popover-foreground: #c5c6c7;
-  --primary: #45a29e;
-  --primary-foreground: #0b0c10;
-  --secondary: #66fcf1;
-  --secondary-foreground: #0b0c10;
-  --muted: #16213e;
-  --muted-foreground: #8b8c8e;
-  --accent: #66fcf1;
-  --accent-foreground: #0b0c10;
-  --destructive: #ff6b6b;
-  --destructive-foreground: #0b0c10;
-  --border: #2d3e50;
-  --input: #1f2833;
-  --ring: #66fcf1;
-  --chart-1: #66fcf1;
-  --chart-2: #45a29e;
-  --chart-3: #16213e;
-  --chart-4: #2d3e50;
-  --chart-5: #8b8c8e;
+  /* Light theme colors */
+  --background: #ffffff;
+  --foreground: #1f2833;
+  --card: #f9fafb;
+  --card-foreground: #1f2833;
+  --popover: #f9fafb;
+  --popover-foreground: #1f2833;
+  --primary: #2e8a87;
+  --primary-foreground: #ffffff;
+  --secondary: #00bfcf;
+  --secondary-foreground: #ffffff;
+  --muted: #e5e7eb;
+  --muted-foreground: #6b7280;
+  --accent: #00bfcf;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #d1d5db;
+  --input: #f9fafb;
+  --ring: #00bfcf;
+  --chart-1: #00bfcf;
+  --chart-2: #2e8a87;
+  --chart-3: #e5e7eb;
+  --chart-4: #d1d5db;
+  --chart-5: #6b7280;
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);

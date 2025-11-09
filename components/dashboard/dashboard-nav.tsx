@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
-import { Menu, X, LogOut, Settings, Sun, Moon } from "lucide-react"
+import { Menu, X, Sun, Moon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function DashboardNav() {
@@ -56,17 +56,6 @@ export default function DashboardNav() {
             suppressHydrationWarning
           >
             {theme === 'light' ? <Sun size={20} /> : <Moon size={20} />}
-          </Button>
-          <Button variant="ghost" size="icon" className="text-foreground hover:text-accent hover:bg-accent/10">
-            <Settings size={20} />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-foreground hover:text-accent hover:bg-accent/10"
-            onClick={() => (window.location.href = "/login")}
-          >
-            <LogOut size={20} />
           </Button>
 
           {/* Mobile menu button */}

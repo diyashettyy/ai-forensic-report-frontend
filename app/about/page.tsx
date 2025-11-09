@@ -100,6 +100,17 @@ export default function AboutPage() {
             </Card>
           </motion.div>
 
+          {/* Project Guide */}
+          <motion.div variants={itemVariants}>
+            <Card className="glass-card p-8 space-y-4">
+              <h2 className="text-2xl font-bold font-poppins text-foreground">Project Guide</h2>
+              <div className="p-4 bg-card/50 rounded-lg border border-border">
+                <p className="font-semibold text-foreground">Ms Amrutha</p>
+                <p className="text-sm text-muted-foreground">Assistant Professor, CSE Department</p>
+              </div>
+            </Card>
+          </motion.div>
+
           {/* Resources */}
           <motion.div variants={itemVariants}>
             <Card className="glass-card p-8 space-y-4">
