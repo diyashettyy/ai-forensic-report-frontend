@@ -22,20 +22,22 @@ export default function SummaryPanel({
       expanded: true,
       type: "text" as const,
     },
-    {
-      key: "findings",
-      title: "Key Findings",
-      content: keyFindings || [],
-      expanded: true,
-      type: "list" as const,
-    },
-    {
-      key: "recs",
-      title: "Recommendations",
-      content: recommendations || [],
-      expanded: true,
-      type: "list" as const,
-    },
+    // The following sections are intentionally commented out per requirement
+    // to show only the Executive Summary.
+    // {
+    //   key: "findings",
+    //   title: "Key Findings",
+    //   content: keyFindings || [],
+    //   expanded: true,
+    //   type: "list" as const,
+    // },
+    // {
+    //   key: "recs",
+    //   title: "Recommendations",
+    //   content: recommendations || [],
+    //   expanded: true,
+    //   type: "list" as const,
+    // },
   ])
 
   const toggleSection = (key: string) => {
@@ -53,7 +55,7 @@ export default function SummaryPanel({
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.1 }}
         >
-          <Card className="glass-card overflow-hidden">
+          <Card className="glass-card overflow-hidden h-[70vh] flex flex-col">
             <button
               onClick={() => toggleSection(section.key)}
               className="w-full p-4 flex items-center justify-between hover:bg-accent/5 transition-colors"
@@ -71,30 +73,16 @@ export default function SummaryPanel({
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="px-4 pb-4 border-t border-border"
+                className="px-4 pb-4 border-t border-border flex-1 overflow-y-auto pr-2"
               >
-                {section.type === "text" ? (
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.1 }}
-                    className="text-sm text-foreground leading-relaxed"
-                  >
-                    {section.content as string}
-                  </motion.p>
-                ) : (
-                  <ul className="list-disc pl-6 space-y-2">
-                    {(section.content as string[]).length ? (
-                      (section.content as string[]).map((item, i) => (
-                        <li key={i} className="text-sm text-foreground leading-relaxed">
-                          {item}
-                        </li>
-                      ))
-                    ) : (
-                      <li className="text-sm text-muted-foreground">No items available.</li>
-                    )}
-                  </ul>
-                )}
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                  className="text-sm text-foreground leading-relaxed"
+                >
+                  {section.content as string}
+                </motion.p>
               </motion.div>
             )}
           </Card>

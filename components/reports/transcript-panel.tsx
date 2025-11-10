@@ -14,10 +14,10 @@ export default function TranscriptPanel({
   const q = (searchQuery || "").toLowerCase()
 
   return (
-    <Card className="glass-card p-6 space-y-4">
+    <Card className="glass-card p-6 space-y-4 h-[70vh] flex flex-col overflow-hidden">
       <h3 className="text-lg font-semibold font-poppins text-foreground">Transcript</h3>
 
-      <div className="space-y-3 max-h-96 overflow-y-auto pr-2">
+      <div className="space-y-3 flex-1 overflow-y-auto pr-2">
         {transcript.map((entry, index) => {
           const highlighted =
             !!q &&
@@ -50,7 +50,7 @@ export default function TranscriptPanel({
       </div>
 
       {/* Jump to Timestamp Button (placeholder) */}
-      <button className="w-full py-2 px-3 rounded-lg border border-border text-foreground hover:bg-accent/10 hover:border-accent transition-colors text-sm font-medium">
+      <button className="w-full py-2 px-3 rounded-lg border border-border text-foreground hover:bg-accent/10 hover:border-accent transition-colors text-sm font-medium flex-none">
         Jump to Timestamp
       </button>
     </Card>
