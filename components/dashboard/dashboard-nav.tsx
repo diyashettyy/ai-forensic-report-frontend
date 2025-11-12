@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 
 export default function DashboardNav() {
   const [isOpen, setIsOpen] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme, resolvedTheme } = useTheme()
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
@@ -55,7 +55,7 @@ export default function DashboardNav() {
             onClick={toggleTheme}
             suppressHydrationWarning
           >
-            {theme === 'light' ? <Sun size={20} /> : <Moon size={20} />}
+            {resolvedTheme === 'light' ? <Sun size={20} /> : <Moon size={20} />}
           </Button>
 
           {/* Mobile menu button */}

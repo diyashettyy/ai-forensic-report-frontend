@@ -13,6 +13,8 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  LabelList,
+  Label,
 } from "recharts"
 
 export default function DashboardCharts() {
@@ -27,10 +29,17 @@ export default function DashboardCharts() {
   ]
 
   const accuracyData = [
-    { name: "Model v1", accuracy: 89 },
-    { name: "Model v2", accuracy: 91 },
-    { name: "Model v3", accuracy: 94 },
-    { name: "Model v4", accuracy: 96 },
+    { name: "ROUGE-1", accuracy: 49.3 },
+    { name: "ROUGE-2", accuracy: 33.8 },
+    { name: "ROUGE-L", accuracy: 46.6 },
+    { name: "BERTScore", accuracy: 90.2 },
+  ]
+
+  const evaluationData = [
+    { name: "ROUGE-1", score: 49.3 },
+    { name: "ROUGE-2", score: 33.8 },
+    { name: "ROUGE-L", score: 46.6 },
+    { name: "BERTScore", score: 90.2 },
   ]
 
   const containerVariants = {
@@ -60,9 +69,16 @@ export default function DashboardCharts() {
         <Card className="glass-card card-hover p-6">
           <h3 className="text-lg font-semibold font-poppins text-foreground mb-4">Processing Time (hours)</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={processingTimeData}>
+            <LineChart data={[
+              { time: 0, value: 47.3396 / 3600 },
+              { time: 1, value: 53.5869 / 3600 },
+              { time: 2, value: 65.3968 / 3600 },
+              { time: 3, value: 71.9450 / 3600 },
+              { time: 4, value: 58.0315 / 3600 },
+              { time: 5, value: 123.4622 / 3600 },
+            ]}>
               <CartesianGrid strokeDasharray="3 3" stroke="#2d3e50" />
-              <XAxis stroke="#8b8c8e" />
+              <XAxis dataKey="time" stroke="#8b8c8e" />
               <YAxis stroke="#8b8c8e" />
               <Tooltip
                 contentStyle={{
@@ -72,29 +88,34 @@ export default function DashboardCharts() {
                 }}
                 labelStyle={{ color: "#c5c6c7" }}
               />
-              <Legend />
+              <Legend
+                wrapperStyle={{ paddingTop: '20px' }}
+                iconType="circle"
+                formatter={() => <span style={{ color: '#45a29e' }}>time</span>}
+              />
               <Line
                 type="monotone"
-                dataKey="time"
-                stroke="#66fcf1"
+                dataKey="value"
+                stroke="#45a29e"
                 strokeWidth={2}
-                dot={{ fill: "#45a29e", r: 4 }}
+                dot={{ fill: "#45a29e", strokeWidth: 2, r: 4 }}
                 activeDot={{ r: 6 }}
+                name="time"
               />
             </LineChart>
           </ResponsiveContainer>
         </Card>
       </motion.div>
 
-      {/* Accuracy Trends Chart */}
+      {/* Model Accuracy Trends Chart */}
       <motion.div variants={itemVariants}>
         <Card className="glass-card card-hover p-6">
-          <h3 className="text-lg font-semibold font-poppins text-foreground mb-4">Model Accuracy Trends</h3>
+          <h3 className="text-lg font-semibold font-poppins text-foreground mb-4">Model Evaluation (ROUGE & BERTScore)</h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={accuracyData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#2d3e50" />
-              <XAxis stroke="#8b8c8e" />
-              <YAxis stroke="#8b8c8e" />
+              <XAxis dataKey="name" stroke="#8b8c8e" />
+              <YAxis stroke="#8b8c8e" domain={[0, 100]} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: "#1f2833",
@@ -103,8 +124,10 @@ export default function DashboardCharts() {
                 }}
                 labelStyle={{ color: "#c5c6c7" }}
               />
-              <Legend />
-              <Bar dataKey="accuracy" fill="#45a29e" radius={[8, 8, 0, 0]} />
+              <Legend wrapperStyle={{ paddingTop: '20px' }} />
+              <Bar dataKey="accuracy" name="Score %" fill="#45a29e" radius={[8, 8, 0, 0]}>
+                <LabelList dataKey="accuracy" position="top" />
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </Card>

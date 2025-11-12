@@ -46,10 +46,6 @@ export default function ReportViewer({ report }: { report: Report }) {
               <Copy className="w-4 h-4 mr-2" />
               Copy Summary
             </Button>
-            <Button className="glow-button bg-gradient-to-r from-primary to-secondary" disabled>
-              <Download className="w-4 h-4 mr-2" />
-              PDF
-            </Button>
           </div>
         </div>
       </div>
