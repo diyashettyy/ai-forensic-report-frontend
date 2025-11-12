@@ -116,7 +116,17 @@ export default function AboutPage() {
             <Card className="glass-card p-8 space-y-4">
               <h2 className="text-2xl font-bold font-poppins text-foreground">Resources & Documentation</h2>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="glow-button bg-gradient-to-r from-primary to-secondary flex-1">
+                <Button
+                  className="glow-button bg-gradient-to-r from-primary to-secondary flex-1"
+                  onClick={() => {
+                    const link = document.createElement('a')
+                    link.href = 'https://drive.google.com/uc?export=download&id=1Ps-ZdV4Ok6FHaDaNpX0Z15mOd7OC_Ntd'
+                    link.download = 'documentation.pdf'
+                    document.body.appendChild(link)
+                    link.click()
+                    document.body.removeChild(link)
+                  }}
+                >
                   <Download className="w-4 h-4 mr-2" />
                   Download Documentation
                 </Button>

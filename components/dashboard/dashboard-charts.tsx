@@ -72,10 +72,12 @@ export default function DashboardCharts() {
             <LineChart data={[
               { time: 0, value: 47.3396 / 3600 },
               { time: 1, value: 53.5869 / 3600 },
-              { time: 2, value: 65.3968 / 3600 },
-              { time: 3, value: 71.9450 / 3600 },
-              { time: 4, value: 58.0315 / 3600 },
-              { time: 5, value: 123.4622 / 3600 },
+              { time: 2, value: 54.1531 / 3600 },
+              { time: 3, value: 65.3968 / 3600 },
+              { time: 4, value: 93.3866 / 3600 },
+              { time: 5, value: 71.9450 / 3600 },
+              { time: 6, value: 58.0315 / 3600 },
+              { time: 7, value: 123.4622 / 3600 },
             ]}>
               <CartesianGrid strokeDasharray="3 3" stroke="#2d3e50" />
               <XAxis dataKey="time" stroke="#8b8c8e" />
